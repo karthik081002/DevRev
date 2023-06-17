@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <link rel="stylesheet" type="text/css" href="/static/adminstyle.css">
+</head>
+<body>
+    <form class="home-button" action="/">
+        <input type="submit" value="Home"/>
+    </form>
+    <div class="container">
+        <h1>userlogin</h1>
+        <form action="/userlogin" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="/usersignup">Sign up</a></p>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="messages">{{messages[0]}}</div>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
